@@ -3,8 +3,8 @@ import locale
 
 st.markdown('<h2 style="font-size: 24px;">Inflační doložka</h3>', unsafe_allow_html=True)
 def calculate_EP(IP1, PM1, EP0):
-    IP0 = st.number_input('IP0', value=140, format="%.0f", step=1000.0)
-    PM0 = st.number_input('PM0', value=42000, format="%.0f", step=1000.0)
+    IP0 = st.number_input('IP0', value=140.0, format="%.0f", step=1000.0)
+    PM0 = st.number_input('PM0', value=42000.0, format="%.0f", step=1000.0)
     
     if IP0 == 0 or PM0 == 0:
         return EP0
@@ -16,7 +16,7 @@ def main():
     # Set the locale for formatting thousands separator
     locale.setlocale(locale.LC_ALL, '')
 
-    EP0 = st.number_input('EP0', value=10000000, format="%.0f", step=1000.0)
+    EP0 = st.number_input('EP0', value=10000000.0, format="%.0f", step=1000.0)
     IP1 = st.slider('IP1', min_value=120.0, max_value=150.0, step=0.1, value=120.0)
     PM1 = st.slider('PM1', min_value=39000, max_value=50000, step=1000, value=40000)
 
