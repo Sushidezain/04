@@ -26,11 +26,11 @@ def main():
     st.write('EP: {:,}'.format(EP).replace(',', ' '))
     st.markdown('<h2 style="font-size: 24px;">Comparison between EP and EP0:</h2>', unsafe_allow_html=True)
     if EP > EP0:
-        st.markdown('<p style="font-size: 18px; color: green; font-weight: bold;">EP is greater than EP0 by {:,}</p>'.format(int(difference)).replace(',', ' '), unsafe_allow_html=True)
+        st.markdown('<p style="font-size: 18px; color: green; font-weight: bold;">EP je větší než EP0 o {:,}</p>'.format(int(difference)).replace(',', ' '), unsafe_allow_html=True)
     elif EP < EP0:
-        st.markdown('<p style="font-size: 18px; color: red; font-weight: bold;">EP is less than EP0 by {:,}</p>'.format(int(abs(difference))).replace(',', ' '), unsafe_allow_html=True)
+        st.markdown('<p style="font-size: 18px; color: red; font-weight: bold;">EP je menší než EP0 o {:,}</p>'.format(int(abs(difference))).replace(',', ' '), unsafe_allow_html=True)
     else:
-        st.markdown('<p style="font-size: 18px; font-weight: bold;">EP is equal to EP0</p>', unsafe_allow_html=True)
+        st.markdown('<p style="font-size: 18px; font-weight: bold;">EP je rovno EP0</p>', unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()
