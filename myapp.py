@@ -1,6 +1,7 @@
 import streamlit as st
 import locale
 
+st.markdown('<h2 style="font-size: 24px;">Inflační doložka:</h2>', unsafe_allow_html=True)
 def calculate_EP(IP1, PM1, EP0):
     IP0 = st.number_input('IP0', value=0.0, format="%.0f", step=1000.0)
     PM0 = st.number_input('PM0', value=0.0, format="%.0f", step=1000.0)
@@ -24,7 +25,7 @@ def main():
 
     st.write('EP0: {:,}'.format(EP0).replace(',', ' '))
     st.write('EP: {:,}'.format(EP).replace(',', ' '))
-    st.markdown('<h2 style="font-size: 24px;">Comparison between EP and EP0:</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 style="font-size: 24px;">Porovnání  mezi EP a EP0:</h2>', unsafe_allow_html=True)
     if EP > EP0:
         st.markdown('<p style="font-size: 18px; color: green; font-weight: bold;">EP je větší než EP0 o {:,}</p>'.format(int(difference)).replace(',', ' '), unsafe_allow_html=True)
     elif EP < EP0:
