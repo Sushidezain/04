@@ -42,7 +42,7 @@ def main():
     else:
         st.markdown('<p style="font-size: 18px; font-weight: bold;">EP je rovno EP0</p>', unsafe_allow_html=True)
 
-# Plotting the line graph
+ # Plotting the line graph
     fig, ax = plt.subplots()
     ax.plot([EP0, EP], color='blue', marker='o')
     ax.set_xlabel('EP0')
