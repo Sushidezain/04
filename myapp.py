@@ -1,6 +1,5 @@
 import streamlit as st
 import locale
-import matplotlib.pyplot as plt
 
 st.markdown('<h2 style="font-size: 30px;">Inflační doložka</h2>', unsafe_allow_html=True)
 
@@ -24,6 +23,7 @@ def main():
 
     IP0, PM0, EP = calculate_EP(IP1, PM1, EP0)
     difference = EP - EP0
+    percentage_change = ((EP - EP0) / EP0) * 100
 
     st.markdown('<h2 style="font-size: 24px;">Porovnání mezi EP a EP0:</h2>', unsafe_allow_html=True)
 
@@ -37,16 +37,7 @@ def main():
     else:
         st.markdown('<p style="font-size: 18px; font-weight: bold;">EP je rovno EP0</p>', unsafe_allow_html=True)
 
-    # Plotting the line graph
-    fig, ax = plt.subplots()
-    percentage_change = ((EP - EP0) / EP0) * 100
-    ax.plot([0, 1], [EP0, EP], color='blue', marker='o')
-    ax.set_xticks([0, 1])
-    ax.set_xticklabels(['EP0', 'EP'])
-    ax.set_ylabel('Percentage Change')
-    ax.set_title('Comparison between EP0 and EP (Percentage Change)')
-    ax.annotate(f'{percentage_change:.2f}%', xy=(1, EP), xytext=(10, 0), textcoords='offset points')
-    st.pyplot(fig)
+    st.write('Procentuální změna mezi EP a EP0: {:.2f}%'.format(percentage_change))
 
 if __name__ == '__main__':
     main()
