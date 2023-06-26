@@ -23,8 +23,8 @@ def main():
     locale.setlocale(locale.LC_ALL, '')
 
     EP0 = st.number_input('EP0', value=10_000_000, step=1_000, format="%d")
-    IP1 = st.slider('IP1', min_value=130.0, max_value=160.0, step=0.1, value=145.0)
-    PM1 = st.slider('PM1', min_value=39000, max_value=50000, step=100, value=40000)
+    IP1 = st.slider('IP1', min_value=130.0, max_value=160.0, step=0.1, value= IP0)
+    PM1 = st.slider('PM1', min_value=39000, max_value=50000, step=1, value= PM0)
 
     IP0, PM0, EP = calculate_EP(IP1, PM1, EP0)
     difference = EP - EP0
