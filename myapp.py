@@ -7,6 +7,9 @@ def calculate_EP(IP1, PM1, EP0):
     IP0 = 144.9
     PM0 = 41446
     
+    st.write('IP0 = {:,}'.format(IP0).replace(',', ' '))
+    st.write('PM0 = {:,}'.format(PM0).replace(',', ' '))
+    
     if IP0 == 0 or PM0 == 0:
         return IP0, PM0, EP0
     
@@ -25,9 +28,6 @@ def main():
     difference = EP - EP0
 
     st.markdown('<h2 style="font-size: 24px;">Porovnání mezi EP a EP0:</h2>', unsafe_allow_html=True)
-    
-    st.markdown('<span style="font-family: Arial; font-size: 16px;">IP0 = {:,}</span>'.format(IP0).replace(',', ' '), unsafe_allow_html=True)
-    st.markdown('<span style="font-family: Arial; font-size: 16px;">PM0 = {:,}</span>'.format(PM0).replace(',', ' '), unsafe_allow_html=True)
 
     st.write('EP0 = {:,}'.format(EP0).replace(',', ' '))
     st.write('EP = {:,}'.format(int(EP)).replace(',', ' '))
