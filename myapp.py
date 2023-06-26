@@ -3,8 +3,8 @@ import locale
 
 st.markdown('<h2 style="font-size: 24px;">Inflační doložka</h3>', unsafe_allow_html=True)
 def calculate_EP(IP1, PM1, EP0):
-    IP0 = ('IP0', value=144.9, format="%.0f")
-    PM0 = st.number_input('PM0', value=42000.0, format="%.0f", step=1000.0)
+    IP0 = 144.9
+    PM0 = 41 446
     
     if IP0 == 0 or PM0 == 0:
         return EP0
