@@ -6,6 +6,11 @@ st.markdown('<h2 style="font-size: 30px;">Inflační doložka</h2>', unsafe_allo
 def calculate_EP(IP1, PM1, EP0):
     IP0 = 144.9
     PM0 = 41446
+    
+st.markdown('<h2 style="font-size: 30px;">Vstupní data</h2>', unsafe_allow_html=True)
+    
+    st.write('IP0 = {:,}'.format(IP0).replace(',', ' '))
+    st.write('PM0 = {:,}'.format(PM0).replace(',', ' '))
 
     if IP0 == 0 or PM0 == 0:
         return IP0, PM0, EP0
