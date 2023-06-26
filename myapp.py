@@ -4,7 +4,7 @@ import locale
 st.markdown('<h2 style="font-size: 24px;">Inflační doložka</h3>', unsafe_allow_html=True)
 def calculate_EP(IP1, PM1, EP0):
     IP0 = 144.9
-    PM0 = 41 446
+    PM0 = 41446
     
     if IP0 == 0 or PM0 == 0:
         return EP0
