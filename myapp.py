@@ -26,6 +26,8 @@ def main():
 
     st.markdown('<h2 style="font-size: 24px;">Porovnání mezi EP a EP0:</h2>', unsafe_allow_html=True)
     
+    st.write('IP0 = {:,}'.format(IP0).replace(',', ' '))
+    st.write('PM0 = {:,}'.format(PM0).replace(',', ' '))
     st.write('EP0 = {:,}'.format(EP0).replace(',', ' '))
     st.write('EP = {:,}'.format(int(EP)).replace(',', ' '))
 
