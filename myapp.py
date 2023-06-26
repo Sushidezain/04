@@ -41,5 +41,13 @@ def main():
     else:
         st.markdown('<p style="font-size: 18px; font-weight: bold;">EP je rovno EP0</p>', unsafe_allow_html=True)
 
+# Plotting the line graph
+    fig, ax = plt.subplots()
+    ax.plot([EP0, EP], color='blue', marker='o')
+    ax.set_xlabel('EP0')
+    ax.set_ylabel('EP')
+    ax.set_title('Comparison between EP0 and EP')
+    st.pyplot(fig)
+
 if __name__ == '__main__':
     main()
