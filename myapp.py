@@ -8,10 +8,10 @@ def calculate_EP(IP1, PM1, EP0):
     PM0 = 41446
     
     if IP0 == 0 or PM0 == 0:
-        return EP0
+        return IP0, PM0, EP0
     
     EP = 0.8 * EP0 * (0.5 * (IP1 / IP0) + 0.5 * (PM1 / PM0)) + 0.2 * EP0
-    return EP
+    return IP0, PM0, EP
 
 def main():
     # Set the locale for formatting thousands separator
@@ -21,7 +21,7 @@ def main():
     IP1 = st.slider('IP1', min_value=120.0, max_value=150.0, step=0.1, value=120.0)
     PM1 = st.slider('PM1', min_value=39000, max_value=50000, step=100, value=40000)
 
-    EP = calculate_EP(IP1, PM1, EP0)
+    IP0, PM0, EP = calculate_EP(IP1, PM1, EP0)
     difference = EP - EP0
 
     st.markdown('<h2 style="font-size: 24px;">Porovnání mezi EP a EP0:</h2>', unsafe_allow_html=True)
