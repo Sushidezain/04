@@ -1,4 +1,5 @@
 import streamlit as st
+import matplotlib.pyplot as plt
 import locale
 
 st.markdown('<h2 style="font-size: 40px;">Inflační doložka</h2>', unsafe_allow_html=True)
