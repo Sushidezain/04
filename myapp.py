@@ -44,7 +44,7 @@ def main():
         
     st.write('Procentuální změna mezi EP a EP0: {:.2f}%'.format(percentage_change))
 
-    st.markdown('<br>' * 2 + '<p style="font-size: 7px; color: grey;">Made by: <a href="https://sushidezain.000webhostapp.com/" target="_blank">https://sushidezain.000webhostapp.com/</a></p>', unsafe_allow_html=True)
+    st.markdown('<br>' * 1 + '<p style="font-size: 10px; color: grey;">Made by: <a href="https://sushidezain.000webhostapp.com/" target="_blank">https://sushidezain.000webhostapp.com/</a></p>', unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()
