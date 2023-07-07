@@ -1,6 +1,20 @@
 import streamlit as st
 import locale
 
+PASSWORD = "password123"  # Set your desired password here
+
+def authenticate(password):
+    return password == PASSWORD
+
+def main():
+    # Set the locale for formatting thousands separator
+    locale.setlocale(locale.LC_ALL, '')
+
+    password = st.sidebar.text_input("Password", "", type="password")
+    if not authenticate(password):
+        st.error("Invalid password. Please try again.")
+        return
+
 st.markdown('<h2 style="font-size: 30px;">Inflační doložka</h2>', unsafe_allow_html=True)
 
 def calculate_EP(IP1, PM1, EP0):
