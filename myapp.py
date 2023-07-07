@@ -1,28 +1,37 @@
 import streamlit as st
 import locale
 
-PASSWORD = "password123"  # Set your desired password here
+def check_password():
+    """Returns `True` if the user had the correct password."""
 
-def authenticate(password):
-    return password == PASSWORD
+    def password_entered():
+        """Checks whether a password entered by the user is correct."""
+        if st.session_state["password"] == st.secrets["password"]:
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]  # don't store password
+        else:
+            st.session_state["password_correct"] = False
 
-@st.cache(allow_output_mutation=True)
-def get_password_attempt():
-    return []
+    if "password_correct" not in st.session_state:
+        # First run, show input for password.
+        st.text_input(
+            "Password", type="password", on_change=password_entered, key="password"
+        )
+        return False
+    elif not st.session_state["password_correct"]:
+        # Password not correct, show input + error.
+        st.text_input(
+            "Password", type="password", on_change=password_entered, key="password"
+        )
+        st.error("😕 Password incorrect")
+        return False
+    else:
+        # Password correct.
+        return True
 
-def main():
-    # Set the locale for formatting thousands separator
-    locale.setlocale(locale.LC_ALL, '')
-
-    password_attempt = get_password_attempt()
-    if not password_attempt:
-        password_attempt.append(False)
-
-    password = st.sidebar.text_input("Password", "", type="password")
-    if not password_attempt[0] and not authenticate(password):
-        st.error("Invalid password. Please try again.")
-        password_attempt[0] = True
-        return
+if check_password():
+    st.write("Here goes your normal Streamlit app...")
+    st.button("Click me")
 
 st.markdown('<h2 style="font-size: 30px;">Inflační doložka</h2>', unsafe_allow_html=True)
 
