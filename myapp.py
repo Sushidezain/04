@@ -6,16 +6,23 @@ PASSWORD = "password123"  # Set your desired password here
 def authenticate(password):
     return password == PASSWORD
 
+@st.cache(allow_output_mutation=True)
+def get_password_attempt():
+    return []
+
 def main():
     # Set the locale for formatting thousands separator
     locale.setlocale(locale.LC_ALL, '')
 
-    password = st.sidebar.text_input("Password", "", type="password")
-    if password != PASSWORD:
-        st.error("Invalid password. Please try again.")
-        return
+    password_attempt = get_password_attempt()
+    if not password_attempt:
+        password_attempt.append(False)
 
-    st.markdown('<h2 style="font-size: 30px;">Inflační doložka</h2>', unsafe_allow_html=True)
+    password = st.sidebar.text_input("Password", "", type="password")
+    if not password_attempt[0] and not authenticate(password):
+        st.error("Invalid password. Please try again.")
+        password_attempt[0] = True
+        return
 
 st.markdown('<h2 style="font-size: 30px;">Inflační doložka</h2>', unsafe_allow_html=True)
 
