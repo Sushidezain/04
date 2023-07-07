@@ -1,6 +1,7 @@
 import streamlit as st
 import locale
 
+password = ".streamlit/secrets.toml"
 
 st.markdown('<h2 style="font-size: 30px;">Inflační doložka</h2>', unsafe_allow_html=True)
 
