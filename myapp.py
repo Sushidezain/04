@@ -11,9 +11,11 @@ def main():
     locale.setlocale(locale.LC_ALL, '')
 
     password = st.sidebar.text_input("Password", "", type="password")
-    if not authenticate(password):
+    if password != PASSWORD:
         st.error("Invalid password. Please try again.")
         return
+
+    st.markdown('<h2 style="font-size: 30px;">Inflační doložka</h2>', unsafe_allow_html=True)
 
 st.markdown('<h2 style="font-size: 30px;">Inflační doložka</h2>', unsafe_allow_html=True)
 
